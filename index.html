@@ -1,0 +1,511 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff5fb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Balance Quest ✿</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="brand">Balance Quest <span>✿</span></div>
+      <div class="subtitle">a softer way to get things done</div>
+    </div>
+    <div class="profile-chip">
+      <span id="headerAvatar">☺</span>
+      <span id="headerName">Mochi</span>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section id="setupScreen" class="screen">
+      <div class="welcome">
+        <p class="eyebrow">YOUR LITTLE STUDY WORLD</p>
+        <h1>Let's make today feel manageable.</h1>
+        <p>Set up your day, meet your study buddy, then head into your own cosy bedroom.</p>
+      </div>
+
+      <div class="panel">
+        <div class="step-heading">
+          <span class="step-number">1</span>
+          <div>
+            <h2>Check in with yourself</h2>
+            <p>There are no wrong answers.</p>
+          </div>
+        </div>
+
+        <label>How are you feeling right now?</label>
+        <div id="moodOptions" class="choice-grid">
+          <button class="choice selected" data-mood="Okay"><span>☁️</span>Okay</button>
+          <button class="choice" data-mood="Stressed"><span>🌧️</span>Stressed</button>
+          <button class="choice" data-mood="Tired"><span>🌙</span>Tired</button>
+          <button class="choice" data-mood="Focused"><span>🌿</span>Focused</button>
+          <button class="choice" data-mood="Motivated"><span>✨</span>Motivated</button>
+        </div>
+
+        <label for="goalInput">What would you like to feel or achieve today?</label>
+        <input id="goalInput" maxlength="120" value="Feel prepared and calm" placeholder="e.g. feel prepared and calm">
+
+        <label for="modeSelect">Choose your study mode</label>
+        <select id="modeSelect">
+          <option value="Gentle">Gentle — small steps</option>
+          <option value="Balanced" selected>Balanced — steady progress</option>
+          <option value="Deep focus">Deep focus — fewer distractions</option>
+        </select>
+
+        <label for="focusInput">Usual study session length (minutes)</label>
+        <div class="inline-fields">
+          <input id="focusInput" type="number" min="5" max="180" value="25">
+          <span class="hint">You can extend this later. A break is due every 30 minutes of continuous study.</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="step-heading">
+          <span class="step-number">2</span>
+          <div>
+            <h2>Build your human avatar</h2>
+            <p>Make your buddy feel like your own character.</p>
+          </div>
+        </div>
+
+        <div class="avatar-preview-wrap">
+          <div id="avatarPreview" class="avatar-preview" aria-label="Avatar preview">
+            <div class="avatar-hair"></div>
+            <div class="avatar-face"><i></i><i></i><b></b></div>
+            <div class="avatar-body"></div>
+          </div>
+          <div>
+            <strong id="previewName">Mochi</strong>
+            <p class="hint">Your buddy will appear in the bedroom and activities.</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label for="avatarName">Buddy name</label>
+            <input id="avatarName" maxlength="24" value="Mochi">
+          </div>
+
+          <div>
+            <label for="skinSelect">Skin tone</label>
+            <select id="skinSelect">
+              <option value="#f6d2b5">Warm light</option>
+              <option value="#e8b58f">Golden</option>
+              <option value="#c98961">Caramel</option>
+              <option value="#8b573f">Deep brown</option>
+              <option value="#f0c4a7">Peach</option>
+              <option value="#d9a17e">Tan</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="hairSelect">Hairstyle</label>
+            <select id="hairSelect">
+              <option value="bob">Soft bob</option>
+              <option value="long">Long hair</option>
+              <option value="curly">Curly</option>
+              <option value="bun">High bun</option>
+              <option value="short">Short</option>
+              <option value="ponytail">Ponytail</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="hairColor">Hair colour</label>
+            <select id="hairColor">
+              <option value="#5b3a32">Chocolate brown</option>
+              <option value="#2b2528">Black</option>
+              <option value="#a86e43">Chestnut</option>
+              <option value="#d6a75d">Honey blonde</option>
+              <option value="#9a6bb5">Lilac</option>
+              <option value="#d77d9d">Rose</option>
+              <option value="#536f80">Blue-grey</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="eyeSelect">Eyes</label>
+            <select id="eyeSelect">
+              <option value="#44312b">Brown</option>
+              <option value="#527d75">Green</option>
+              <option value="#6487b7">Blue</option>
+              <option value="#8a6ca8">Violet</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="outfitSelect">Outfit</label>
+            <select id="outfitSelect">
+              <option value="#e9a9c6">Pink hoodie</option>
+              <option value="#c6b5e8">Lilac jumper</option>
+              <option value="#9abbdc">Blue pyjamas</option>
+              <option value="#a9d3bd">Mint sweater</option>
+              <option value="#f0bf9e">Peach outfit</option>
+              <option value="#f1d987">Butter-yellow tee</option>
+              <option value="#d6a4a1">Rose cardigan</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="accessorySelect">Accessory</label>
+            <select id="accessorySelect">
+              <option value="none">None</option>
+              <option value="bow">Hair bow</option>
+              <option value="headphones">Headphones</option>
+              <option value="flower">Flower clip</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="avatarPronouns">Buddy style</label>
+            <select id="avatarPronouns">
+              <option value="they">They / them</option>
+              <option value="she">She / her</option>
+              <option value="he">He / him</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="step-heading">
+          <span class="step-number">3</span>
+          <div>
+            <h2>Add and prioritise your tasks</h2>
+            <p>Drag tasks into order or use the arrows. Do the most important things first.</p>
+          </div>
+        </div>
+
+        <form id="taskForm" class="task-entry">
+          <input id="taskInput" maxlength="100" placeholder="What do you need to work on?" required>
+          <select id="taskPriority">
+            <option value="High">High priority</option>
+            <option value="Medium" selected>Medium priority</option>
+            <option value="Low">Low priority</option>
+          </select>
+          <button class="primary small" type="submit">Add task +</button>
+        </form>
+
+        <div id="setupTaskList" class="task-list"></div>
+
+        <label for="notesInput">Anything your buddy should keep in mind? (optional)</label>
+        <textarea id="notesInput" rows="2" placeholder="e.g. I have a test on Friday"></textarea>
+      </div>
+
+      <button id="startQuest" class="primary wide">Enter my bedroom ✿</button>
+      <p class="footnote">Your setup is saved on this device. You can change your plan any time.</p>
+    </section>
+
+    <section id="bedroomScreen" class="screen hidden">
+      <div class="dashboard">
+        <div class="stat">
+          <span>⚡ Energy</span>
+          <div class="meter"><i id="energyBar"></i></div>
+          <strong id="energyValue">100%</strong>
+        </div>
+        <div class="stat">
+          <span>🎯 Focus</span>
+          <div class="meter focus-meter"><i id="focusBar"></i></div>
+          <strong id="focusValue">100%</strong>
+        </div>
+        <div class="stat">
+          <span>✦ Quest level</span>
+          <strong id="levelValue">Level 1</strong>
+          <small><span id="xpValue">0</span> XP to next level</small>
+        </div>
+        <div class="stat">
+          <span>🪙 Quest coins</span>
+          <strong id="coinValue">20</strong>
+        </div>
+      </div>
+
+      <div class="room-heading">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL SPACE</p>
+          <h1 id="roomTitle">Cosy Pastel Bedroom</h1>
+          <p id="roomCaption">One small step at a time.</p>
+        </div>
+        <button id="editAvatarBtn" class="soft-button">Edit avatar</button>
+      </div>
+
+      <div class="room-toolbar">
+        <button class="tab active" data-tab="bedroom">Bedroom</button>
+        <button class="tab" data-tab="decorate">Decorate</button>
+        <button class="tab" data-tab="shop">Room shop</button>
+        <button class="tab" data-tab="pets">Pets</button>
+        <button class="tab" data-tab="buddy">AI study buddy</button>
+        <button class="tab" data-tab="focus">Focus tools</button>
+        <button class="tab" data-tab="calendar">Calendar planner</button>
+        <button class="tab" data-tab="history">Past check-ins</button>
+        <button class="tab" data-tab="newquest">New quest +</button>
+      </div>
+
+      <div id="roomScene" class="room-scene theme-pastel">
+        <div class="ceiling-glow"></div>
+        <div class="wall"></div>
+        <div class="floor"></div>
+
+        <div class="window">
+          <div class="window-sky"><span>☁</span><span>✦</span></div>
+          <div class="window-cross"></div>
+          <div class="curtain curtain-left"></div>
+          <div class="curtain curtain-right"></div>
+        </div>
+
+        <div class="wall-shelf"><span>📚</span><span>🪴</span><span>♡</span></div>
+        <div class="wall-art">✿<small>you can do this</small></div>
+
+        <div class="bed-furniture">
+          <div class="headboard"></div>
+          <div class="pillow"></div>
+          <div class="blanket"></div>
+          <div class="bed-skirt"></div>
+        </div>
+
+        <div class="rug"></div>
+
+        <div class="desk-furniture">
+          <div class="desk-top">
+            <div class="desk-books">▰<br>▰</div>
+            <div class="desk-lamp">◜</div>
+            <div class="laptop"><div>✧</div></div>
+            <div class="mug">☕</div>
+          </div>
+          <div class="desk-drawer"></div>
+          <div class="desk-leg left"></div>
+          <div class="desk-leg right"></div>
+        </div>
+
+        <div class="chair">
+          <div class="chair-back"></div>
+          <div class="chair-seat"></div>
+          <div class="chair-leg"></div>
+        </div>
+
+        <div id="avatarInRoom" class="room-avatar pose-idle">
+          <div class="avatar-hair"></div>
+          <div class="avatar-head">
+            <div class="avatar-face"><i></i><i></i><b></b></div>
+            <span class="avatar-accessory"></span>
+          </div>
+          <div class="avatar-neck"></div>
+          <div class="avatar-body"></div>
+          <div class="avatar-arm arm-left"></div>
+          <div class="avatar-arm arm-right"></div>
+          <div class="avatar-legs"></div>
+        </div>
+
+        <div id="activityProps" class="activity-props" aria-hidden="true"></div>
+        <div id="placedDecorations" class="placed-decorations"></div>
+        <div class="plant-pot">🌿</div>
+
+        <button
+          type="button"
+          id="roomPet"
+          class="room-pet hidden"
+          aria-label="Interact with your pet"
+          title="Spend a moment with your pet"
+        >🐈</button>
+
+        <div class="room-label" id="roomActionLabel">Your room, your pace</div>
+
+        <button class="room-hotspot bed-hotspot" id="bedRestBtn" aria-label="Rest on bed" title="Rest on bed">Rest on bed</button>
+        <button class="room-hotspot desk-hotspot" id="deskStudyBtn" aria-label="Study at desk" title="Study at desk">Study at desk</button>
+      </div>
+
+      <section id="inRoomBreakPanel" class="panel in-room-break-panel hidden" aria-live="polite">
+        <div class="section-title-row">
+          <div>
+            <p class="eyebrow">A LITTLE RESET, RIGHT HERE</p>
+            <h2 id="breakHeading">Choose a little break activity</h2>
+            <p id="breakIntro" class="hint">Your buddy will do the activity in the bedroom. A required break lasts five minutes.</p>
+          </div>
+          <span class="live-pill" id="roomBreakStatus">Choose an activity</span>
+        </div>
+
+        <div class="break-activity-strip" id="breakActivityChoices" aria-label="Choose a break activity">
+          <button type="button" class="break-choice selected" data-break-activity="Breathing"><span>🌬️</span><strong>Breathing</strong></button>
+          <button type="button" class="break-choice" data-break-activity="Stretch"><span>🙆</span><strong>Stretch</strong></button>
+          <button type="button" class="break-choice" data-break-activity="Drink water"><span>💧</span><strong>Water</strong></button>
+          <button type="button" class="break-choice" data-break-activity="Short walk"><span>🚶</span><strong>Walk</strong></button>
+          <button type="button" class="break-choice" data-break-activity="Listen to music"><span>🎧</span><strong>Music</strong></button>
+          <button type="button" class="break-choice" data-break-activity="Doodle"><span>🎨</span><strong>Doodle</strong></button>
+          <button type="button" class="break-choice" data-break-activity="Look outside"><span>🌤️</span><strong>Look outside</strong></button>
+          <button type="button" class="break-choice" data-break-activity="Spend time with an animal"><span>🐾</span><strong>Animal time</strong></button>
+          <button type="button" class="break-choice" data-break-activity="Read for fun"><span>📖</span><strong>Read</strong></button>
+          <button type="button" class="break-choice" data-break-activity="Cosy rest"><span>🧸</span><strong>Cosy rest</strong></button>
+        </div>
+
+        <div class="in-room-break-details">
+          <div class="activity-instructions" id="breakInstructions">Sit comfortably. Breathe in gently, then breathe out slowly. Let your shoulders soften. Repeat at your own pace.</div>
+
+          <div class="break-countdown">
+            <span>Break timer</span>
+            <strong id="breakTimerDisplay">05:00</strong>
+          </div>
+
+          <div class="timer-controls">
+            <button id="breakStart" class="primary">Start 5-minute break</button>
+            <button id="breakFinish" class="soft-button">Finish voluntary break</button>
+            <button id="hideBreakPanel" class="text-button">Close activities</button>
+          </div>
+
+          <p class="hint" id="breakRuleHint">After a completed task, the five-minute reset starts automatically. The final task goes straight to check-in.</p>
+        </div>
+      </section>
+
+      <div class="room-lower-grid">
+        <section class="sticky-note">
+          <div class="sticky-title">
+            <span>✎</span>
+            <h2>Today's to-do list</h2>
+            <span class="pin"></span>
+          </div>
+
+          <p id="stickyGoal" class="sticky-goal">Feel prepared and calm</p>
+          <p id="stickyBuddyNote" class="sticky-buddy-note hidden"></p>
+          <div id="bedroomTaskList" class="bedroom-task-list"></div>
+
+          <div class="sticky-bottom">
+            <span id="taskProgress">0 of 0 complete</span>
+            <button id="addTaskQuick" class="text-button">+ add task</button>
+          </div>
+        </section>
+
+        <section class="buddy-card">
+          <div class="buddy-card-heading">
+            <div class="mini-avatar" id="miniAvatar">☺</div>
+            <div>
+              <h2 id="buddyCardName">Mochi</h2>
+              <p id="buddyMoodText">Here with you, one step at a time.</p>
+            </div>
+          </div>
+
+          <div class="buddy-speech" id="buddySpeech">You don't have to do everything at once. Let's start with one small thing.</div>
+
+          <div class="quick-actions">
+            <button id="startStudyBtn" class="primary">Start studying</button>
+            <button id="openBreakBtn" class="soft-button">Take a break</button>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel timer-panel">
+        <div class="section-title-row">
+          <div>
+            <p class="eyebrow">BELOW YOUR BEDROOM</p>
+            <h2>Study timer & techniques</h2>
+          </div>
+          <span class="live-pill" id="timerStatus">Ready when you are</span>
+        </div>
+
+        <div class="timer-layout">
+          <div class="timer-face">
+            <div class="timer-ring">
+              <div>
+                <strong id="timerDisplay">25:00</strong>
+                <span id="timerModeLabel">Study session</span>
+              </div>
+            </div>
+
+            <div class="timer-controls">
+              <button id="timerStart" class="primary">Start</button>
+              <button id="timerPause" class="soft-button">Pause</button>
+              <button id="timerReset" class="soft-button">Reset</button>
+            </div>
+          </div>
+
+          <div class="timer-settings">
+            <label for="timerMinutes">Session length (minutes)</label>
+            <div class="inline-fields">
+              <input id="timerMinutes" type="number" min="1" max="240" value="25">
+              <button id="applyTimer" class="soft-button">Apply</button>
+            </div>
+
+            <p class="hint">Timer progress uses saved timestamps, so the elapsed time is recalculated when you return. iPhone may pause the page while it is closed; alarms may not fire until you reopen it.</p>
+            <div id="breakDueNotice" class="notice hidden"></div>
+          </div>
+        </div>
+
+        <div class="techniques">
+          <div class="section-title-row">
+            <div>
+              <h3>Choose a study technique</h3>
+              <p class="hint">Tap one to get a simple prompt for your current task.</p>
+            </div>
+          </div>
+
+          <div class="technique-grid">
+            <button class="technique" data-technique="Active recall"><span>🧠</span><strong>Active recall</strong><small>Remember without looking</small></button>
+            <button class="technique" data-technique="Practice questions"><span>✍️</span><strong>Practice questions</strong><small>Learn by trying</small></button>
+            <button class="technique" data-technique="Teach it back"><span>💬</span><strong>Teach it back</strong><small>Explain it simply</small></button>
+            <button class="technique" data-technique="Break it down"><span>🧩</span><strong>Break it down</strong><small>Make a tiny first step</small></button>
+            <button class="technique" data-technique="Spaced revision"><span>🌱</span><strong>Spaced revision</strong><small>Return to it later</small></button>
+          </div>
+
+          <div id="techniquePrompt" class="technique-prompt">Choose a technique to see how to use it.</div>
+        </div>
+      </section>
+    </section>
+
+    <section id="finalScreen" class="screen hidden">
+      <div class="checkin-top">
+        <p class="eyebrow">QUEST COMPLETE ✦</p>
+        <h1>Pause and check in with yourself.</h1>
+        <p>You finished your planned tasks. No extra break is needed before this check-in.</p>
+      </div>
+
+      <div class="panel final-panel">
+        <div class="final-avatar" id="finalAvatar">☺</div>
+        <h2 id="finalGreeting">You did it, Mochi!</h2>
+        <p id="finalSummary">You made progress today.</p>
+
+        <label>How are you feeling now?</label>
+        <div id="finalMoodOptions" class="choice-grid">
+          <button class="choice selected" data-final-mood="Proud">🌷 Proud</button>
+          <button class="choice" data-final-mood="Calmer">☁️ Calmer</button>
+          <button class="choice" data-final-mood="Tired">🌙 Tired</button>
+          <button class="choice" data-final-mood="Still stressed">🌧️ Still stressed</button>
+          <button class="choice" data-final-mood="Okay">🌿 Okay</button>
+        </div>
+
+        <label for="finalReflection">What went well, or what would you like to remember?</label>
+        <textarea id="finalReflection" rows="3" placeholder="Even one small win counts..."></textarea>
+
+        <label for="nextTimeNote">Would you like to save a little note for next time?</label>
+        <input id="nextTimeNote" maxlength="160" placeholder="e.g. start with maths while I'm fresh">
+
+        <button id="finishQuest" class="primary wide">Save check-in ✿</button>
+        <button id="viewPastCheckinsFinal" class="soft-button wide">View past check-ins</button>
+      </div>
+
+      <div id="completionCard" class="completion-card hidden">
+        <h2>Today's progress is saved ✨</h2>
+        <p id="completionText"></p>
+
+        <div class="final-completion-actions">
+          <button id="newQuest" class="primary">Start a new quest</button>
+          <button id="returnToBedroom" class="soft-button">Return to bedroom</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modalBackdrop" class="modal-backdrop hidden">
+    <div class="modal panel" role="dialog" aria-modal="true">
+      <button id="modalClose" class="modal-close" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
